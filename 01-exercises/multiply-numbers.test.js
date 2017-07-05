@@ -15,20 +15,15 @@ function multiply() {
     var args = Array.prototype.slice.call(arguments);
     var result = 1;
     for (var i = 0; i < args.length; i++) {
-        if (typeof (args[i]) === "number") {
+        var current=args[i];
+        if (typeof current === "number"&& !isNaN(current)) {
             result *= args[i];
         }
         else {
-            result = NaN;
-        }
+            console.error("Please note that:There is one arugment is a string/NAN at lest");
+           }
     }
-    if (!isNaN(result)) {
-        return result;
-    }
-    else {
-        return "Please note that:There is one arugment is a string/NAN at lest"
-    }
-
+return result;    
 }
 
 
@@ -55,14 +50,14 @@ test('multiply should return 0 when we pass zero', function () {
     expect(result).toEqual(0);
 });
 
-test('multiply should return warning when we pass one string/NAN at least', function () {
+test('multiply should return the result with error message when we pass one string/NAN at least', function () {
     var result = multiply(1, 2, "3");
-    expect(result).toEqual("Please note that:There is one arugment is a string/NAN at lest");
+    expect(result).toEqual(2);
 });
 
-test('multiply should return warning when we pass one string/NAN at least', function () {
+test('multiply should return the result with error message when we pass one string/NAN at least', function () {
     var result = multiply(1, 2, NaN);
-    expect(result).toEqual("Please note that:There is one arugment is a string/NAN at lest");
+    expect(result).toEqual(2);
 });
 
 test('multiply should return Infinity when we pass Infinity once at lest', function () {
