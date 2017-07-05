@@ -12,22 +12,22 @@
         4. REPEAT
  */
 function multiply() {
-  var args = Array.prototype.slice.call(arguments);
-  var result =1;
-  for (var i = 0; i < args.length; i++) {
-    if (typeof (args[i]) === "number") {
-           result *= args[i];
+    var args = Array.prototype.slice.call(arguments);
+    var result = 1;
+    for (var i = 0; i < args.length; i++) {
+        if (typeof (args[i]) === "number") {
+            result *= args[i];
+        }
+        else {
+            result = NaN;
+        }
+    }
+    if (!isNaN(result)) {
+        return result;
     }
     else {
-      result = NaN;
+        return "Please note that:There is one arugment is a string/NAN at lest"
     }
-  }
-  if (!isNaN(result)) {
-    return result;
-  }
-  else {
-    return "Please note that:There is one arugment is a string/NAN at lest"
-  }
 
 }
 
