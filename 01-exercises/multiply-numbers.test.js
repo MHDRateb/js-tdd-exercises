@@ -52,12 +52,12 @@ test('multiply should return 0 when we pass zero', function () {
 
 test('multiply should return the result with error message when we pass one string/NAN at least', function () {
     var result = multiply(1, 2, "3");
-    expect(result).toEqual(2);
+    expect(result).toEqual(2,"Please note that:There is one arugment is a string/NAN at lest");
 });
 
 test('multiply should return the result with error message when we pass one string/NAN at least', function () {
     var result = multiply(1, 2, NaN);
-    expect(result).toEqual(2);
+    expect(result).toEqual(2,"Please note that:There is one arugment is a string/NAN at lest");
 });
 
 test('multiply should return Infinity when we pass Infinity once at lest', function () {
