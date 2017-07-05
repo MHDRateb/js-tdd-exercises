@@ -17,22 +17,22 @@ function add() {
     // this line converts whatever is passed to the function into an array
     // read more here - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments
     var args = Array.prototype.slice.call(arguments);
-    var result = null;
-    for (var i = 0; i < args.length; i++) {
-        if (typeof (args[i]) === "number") {
-            result += args[i];
+    var result = 0;
+    if (arguments.length !== 0) {
+        for (var i = 0; i < args.length; i++) {
+            var current = args[i];
+            if (typeof current === "number" && !isNaN(current) ) {
+                result += args[i];
+            }
+            else {
+                console.error("Please note that:There is one arugment is a string/NAN at lest");
+            }
         }
-        else {
-            result = NaN;
-        }
-    }
-    if (!isNaN(result)) {
-        return result;
     }
     else {
-        return "Please note that:There is one arugment is a string/NAN at lest"
+        console.error("Please note that:you didn't enter any number");
     }
-
+    return result;
 }
 
 
@@ -43,9 +43,9 @@ test('add should add two numbers', function () {
 });
 
 
-test('add should return null when we pass no number', function () {
+test('add should return 0 with error message that there is no number when we pass no number', function () {
     var result = add();
-    expect(result).toEqual(null);
+    expect(result).toEqual(0);
 });
 
 
@@ -59,14 +59,14 @@ test('add should return 0 when we pass two equal numbers postive and negative', 
     expect(result).toEqual(0);
 });
 
-test('add should return warning when we pass one string/NAN at least', function () {
+test('add should return the result with error message when we pass one string/NAN at least', function () {
     var result = add(1, 2, "3");
-    expect(result).toEqual("Please note that:There is one arugment is a string/NAN at lest");
+    expect(result).toEqual(3);
 });
 
-test('add should return warning when we pass one string/NAN at least', function () {
+test('add should return result with error message when we pass one string/NAN at least', function () {
     var result = add(1, 2, NaN);
-    expect(result).toEqual("Please note that:There is one arugment is a string/NAN at lest");
+    expect(result).toEqual(3);
 });
 
 test('add should return Infinity when we pass Infinity once at lest', function () {
