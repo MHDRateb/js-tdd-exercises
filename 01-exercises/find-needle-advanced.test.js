@@ -8,7 +8,7 @@ function findMultipleNeedles(haystackArray) {
             positions.push(i);
         }
     }
-    return positions
+    return positions;
 }
 
 
