@@ -45,7 +45,7 @@ test('add should add two numbers', function () {
 
 test('add should return 0 with error message that there is no number when we pass no number', function () {
     var result = add();
-    expect(result).toEqual(0);
+    expect(result).toEqual(0,"Please note that:you didn't enter any number");
 });
 
 
@@ -61,12 +61,12 @@ test('add should return 0 when we pass two equal numbers postive and negative', 
 
 test('add should return the result with error message when we pass one string/NAN at least', function () {
     var result = add(1, 2, "3");
-    expect(result).toEqual(3);
+    expect(result).toBe(3,"Please note that:There is one arugment is a string/NAN at lest");
 });
 
 test('add should return result with error message when we pass one string/NAN at least', function () {
     var result = add(1, 2, NaN);
-    expect(result).toEqual(3);
+    expect(result).toBe(3, "Please note that:There is one arugment is a string/NAN at lest");
 });
 
 test('add should return Infinity when we pass Infinity once at lest', function () {
